@@ -33,6 +33,8 @@ Rails.application.routes.draw do
 
   # DELETE
   get "/delete_like/:id", :controller => "likes", :action => "destroy"
+
+  get "/my_likes", :controller => "likes", :action => "my_likes"
   #------------------------------
 
   # Routes for the Photo resource:
@@ -51,6 +53,12 @@ Rails.application.routes.draw do
   # DELETE
   get "/delete_photo/:id", :controller => "photos", :action => "destroy"
   #------------------------------
+
+  # READ
+  get "/users", :controller => "users", :action => "index"
+
+  get "/users/:id", :controller => "users", :action => "show_user_photos",
+    id: /\d+/
 
   devise_for :users
   # The priority is based upon order of creation: first created -> highest priority.
